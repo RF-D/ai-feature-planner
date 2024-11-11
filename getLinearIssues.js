@@ -1,4 +1,5 @@
 import { LinearClient, LinearDocument } from '@linear/sdk';
+import { promises as fs } from 'fs';
 
 const linearClient = new LinearClient({
   apiKey: process.env.LINEAR_API_KEY
@@ -83,21 +84,30 @@ function formatIssuesSummary(issueData) {
 // Usage
 async function main() {
   const result = await getProjectIssues('cd06d107f422', {
-    limit: 5,
+    limit: 200,
     orderBy: LinearDocument.PaginationOrderBy.CreatedAt,
     includeArchived: true,
-    filter: {
-      state: { name: { eq: 'Deployed' } }
-    }
+    // filter: {
+    //   state: { name: { eq: 'Deployed' } }
+    // }
   });
 
   const formattedResult = formatIssueOutput(result);
   const summaryOutput = formatIssuesSummary(result);
 
-  console.log(JSON.stringify(formattedResult, null, 2));
-//   console.log('Summary:', JSON.stringify(summaryOutput, null, 2));
+  // Save the full formatted result
+  await fs.writeFile(
+    'linear-issues.json', 
+    JSON.stringify(formattedResult, null, 2)
+  );
 
+  // Optionally, save the summary as well
+  await fs.writeFile(
+    'linear-issues-summary.json', 
+    JSON.stringify(summaryOutput, null, 2)
+  );
 
+  console.log('Results saved to linear-issues.json');
 }
 
 main().catch(console.error);

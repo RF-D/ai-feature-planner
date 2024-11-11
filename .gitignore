@@ -41,3 +41,5 @@ src/
 tool_agent.js
 tools/
 tsconfig.json
+linear-issues.json
+linear-issues-summary.json
