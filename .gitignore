@@ -1,0 +1,43 @@
+
+
+
+
+# Node modules and environment files
+node_modules/
+.env
+.env.*
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Build directories
+dist/
+build/
+out/
+
+# Cache directories
+.cache/
+.npm/
+.yarn/
+# Project specific files and directories
+ai_docs/
+database/
+linearFetch.js
+package-lock.json
+package.json
+rag_chat.py
+requirements.txt
+src/
+tool_agent.js
+tools/
+tsconfig.json
