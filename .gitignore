@@ -43,3 +43,4 @@ tools/
 tsconfig.json
 linear-issues.json
 linear-issues-summary.json
+scraped_results/
