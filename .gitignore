@@ -44,3 +44,9 @@ tsconfig.json
 linear-issues.json
 linear-issues-summary.json
 scraped_results/
+stripe_implementation_analysis.json
+stripe_implementation_report.md
+kb_ai_analysis_data.json
+kb_ai_analysis_report.md
+stripe_parity_analysis.json
+stripe_parity_report.md
